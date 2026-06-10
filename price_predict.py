@@ -62,15 +62,17 @@ Transmission_Manual = 1 if Transmission == "Manual" else 0
 
 if st.button("🔍 Predict Price", use_container_width=True):
 
+    Car_Age = 2026 - Year
+
     input_data = np.array([[
-        Year,
         Present_Price,
         Kms_Driven,
         Owner,
+        Seller_Individual,
+        Transmission_Manual,
         Fuel_Diesel,
         Fuel_Petrol,
-        Seller_Individual,
-        Transmission_Manual
+        Car_Age
     ]], dtype=float)
 
     try:
