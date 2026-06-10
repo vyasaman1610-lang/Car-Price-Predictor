@@ -74,7 +74,8 @@ if st.button("🔍 Predict Price", use_container_width=True):
     ]], dtype=float)
 
     try:
-        pred_price = model.predict(input_data)[0]
+        pred_log = model.predict(input_data)[0]
+        pred_price = np.expm1(pred_log)
         pred_price = max(pred_price, 0)
 
         st.markdown(f"""
